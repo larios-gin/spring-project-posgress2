@@ -21,6 +21,7 @@ public class UsuariServei {
     @PostConstruct
     public void init() {
         repo.save(new Usuari("ADMIN", passwordEncoder("ADMIN"), "ADMIN", "ADMIN"));
+        repo.save(new Usuari("USER", passwordEncoder("USER"), "USER", "USER"));
 //                Arrays.asList(
 //                        new Usuari("Roger", passwordEncoder("roger123"), "roger123", "USER"),
 //                        new Usuari("Montse", passwordEncoder("montseprogramacio"), "montseprogramacio", "USER"),
