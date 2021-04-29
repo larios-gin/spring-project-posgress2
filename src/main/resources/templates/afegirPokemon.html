@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <h1 th:text="NouPokemon">NOU POKEMON</h1>
+
+        <form action="#" th:action="@{/afegirPokemon}" th:object="${Pokemon}" method="POST">
+            <div>
+                <label th:text="nomPokemon">Nom Pokemon: </label>
+                <input type="text" th:field="*{nomPokemon}"/>
+                <p th:each="error: ${#fields.errors('nomPokemon')}" th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="numPokemon">Numero Pokemon: </label>
+                <input type="number" th:field="*{numPokemon}"/>
+                <p th:each="error : ${#fields.errors('numPokemon')}" th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="tipusPokemon">Tipus Pokemon:</label>
+                <input type="text" th:field="*{tipusPokemon}"/>
+                <p th:each="error: ${#fields.errors('tipusPokemon')}" th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="descripcioPokemon">Descripcio Pokemon: </label>
+                <input type="text" th:field="*{descripcioPokemon}"/>
+                <p th:each="error: ${#fields.errors('descripcioPokemon')}" th:text="${error}">Error</p>
+            </div>
+
+            <br>
+            <br>
+
+            <button type="submit" th:text="VALE" style = "width: 260px; height: 30px; background-color:seagreen;"></button>
+        </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sortir" style = "width: 260px; height: 30px; background-color:rebeccapurple;"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Llistat Pokemon</title>
+    </head>
+
+    <body>
+        <thead>
+
+        <tr>
+
+            <FONT FACE="impact" SIZE=6 COLOR="black">
+                <th>Crear nou Pokemon</th>
+            </FONT>
+
+            <form action="#" th:action="@{afegir}" method="post">
+                <input  type="submit"  value="NouPokemon" style = "background-color:yellow; width: 260px; height: 30px; "/>
+            </form>
+        </tr>
+
+        <br>
+
+        </thead>
+
+        <tbody>
+            <tr th:each="Pokemon : ${llistaPokemon}">
+
+                <br>
+
+                <FONT FACE="impact" SIZE=4 COLOR="black">
+                    <td th:text="${Pokemon.nomPokemon}">Rayquaza</td>
+                </FONT>
+                <br>
+                <td th:text="${Pokemon.numPokemon}">384</td>
+                <br>
+                <td th:text="${Pokemon.tipusPokemon}">Drac / Volador</td>
+                <br>
+                <td th:text="${Pokemon.descripcioPokemon}">Rayquaza es un Pokemon tipus drac / volador introduit a la generacio 3</td>
+
+                <br>
+                <br>
+
+                <form action="#"  th:action="@{update/{name}(name = ${Pokemon.nomPokemon})}" th:object="${Pokemon}" method="post">
+                    <input type="submit" value="Editar" style = "margin-left: 50px; background-color:mediumseagreen; width: 150px; height: 30px"/>
+                </form>
+
+                <br>
+
+                <form action="#"  th:action="@{delete/{name}(name = ${Pokemon.nomPokemon})}" th:object="${Pokemon}" method="post">
+                    <input  type="submit"  value="Eliminar" style = "margin-left: 50px; background-color:firebrick; width: 150px; height: 30px"/>
+                </form>
+
+                <br>
+
+            </tr>
+        </tbody>
+
+        </table>
+
+        <br>
+        <br>
+        <br>
+
+        <form th:action="@{/login}" method="post">
+            <input type="submit" value="Login" style = "background-color:cornflowerblue; width: 260px; height: 30px"/>
+        </form>
+
+        <br>
+
+        <form th:action="@{/registrar}" method="get">
+            <input type="submit" value="Register" style = "background-color:blueviolet; width: 260px; height: 30px"/>
+        </form>
+
+        <br>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sortir" style = "background-color:rebeccapurple; width: 260px; height: 30px"/>
+        </form>
+    </body>
+</html>

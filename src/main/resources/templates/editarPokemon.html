@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <h1 th:text="EditarPokemon">EditarPokemon</h1>
+
+        <form action="#" th:action="@{/editarPokemon}" th:object="${Pokemon}" method="POST" >
+            <div>
+                <label th:text="nomPokemon">NomPokemon</label>
+                <input type="text" th:field="*{nomPokemon}"/>
+                <p th:each="error: ${#fields.errors('nomPokemon')}"
+                   th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="numPokemon">NumeroPokemon</label>
+                <input type="number"  th:field="*{numPokemon}"/>
+                <p th:each="error : ${#fields.errors('numPokemon')}"
+                   th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="tipusPokemon">TipusPokemon</label>
+                <input type="text" th:field="*{tipusPokemon}"/>
+                <p th:each="error: ${#fields.errors('tipusPokemon')}"
+                   th:text="${error}">Error</p>
+            </div>
+
+            <div>
+                <label th:text="descripcioPokemon">DescripcioPokemon</label>
+                <input type="text" th:field="*{descripcioPokemon}"/>
+                <p th:each="error: ${#fields.errors('descripcioPokemon')}"
+                   th:text="${error}">Error</p>
+            </div>
+
+            <button type="submit" th:text="Submit" style = "background-color:seagreen;">VALE</button>
+        </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sortir" style = "background-color:rebeccapurple;"/>
+        </form>
+    </body>
+</html>
